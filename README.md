@@ -1,2 +1,2 @@
 # django-app-cf-final-project
-A django application for the final project.
+Django application for the final project.
