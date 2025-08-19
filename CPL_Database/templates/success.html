@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Success</title>
+    <style>
+        a.custom-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #d82034;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a.custom-btn:hover {
+            color: white;
+            background-color: #a11c36;
+        }
+
+        .custom-green {
+            background-color: #28a745 !important;
+            /* Replace with your desired green color */
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header custom-green text-white">
+                <h1>Form Submission Successful</h1>
+            </div>
+            <div class="card-body">
+                <p class="card-text">Your form has been successfully submitted.</p>
+                <a href="{% url 'welcome' %}" class="custom-btn">Go to Welcome Page</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

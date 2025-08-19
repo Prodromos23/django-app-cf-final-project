@@ -1,0 +1,29 @@
+<!-- The below script creates a remove option for a case in COI_Cases -->
+{% extends "admin/change_list.html" %}
+{% block content %}
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteButtons = document.querySelectorAll('.deletelink');
+        deleteButtons.forEach(function (button) {
+            button.innerHTML = 'Remove';
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                var caseId = button.closest('tr').dataset.objectId;
+                fetch(`/admin/api/conflict_of_interests/coi_cases/${caseId}/remove/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('Failed to remove entity.');
+                    }
+                });
+            });
+        });
+    });
+</script>
+{{ block.super }}
+{% endblock %}

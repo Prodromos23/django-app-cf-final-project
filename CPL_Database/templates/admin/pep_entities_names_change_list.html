@@ -1,0 +1,29 @@
+<!-- The below script creates a remove option for an entity - name relationship in PEP_Entities_Names -->
+{% extends "admin/change_list.html" %}
+{% block content %}
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function () {
+        var deleteButtons = document.querySelectorAll('.deletelink');
+        deleteButtons.forEach(function (button) {
+            button.innerHTML = 'Remove';
+            button.addEventListener('click', function (event) {
+                event.preventDefault();
+                var entityId = button.closest('tr').dataset.objectId;
+                fetch(`/admin/api/pep_entities_names/${entityId}/remove/`, {
+                    method: 'POST',
+                    headers: {
+                        'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        alert('Failed to remove entity.');
+                    }
+                });
+            });
+        });
+    });
+</script>
+{{ block.super }}
+{% endblock %}

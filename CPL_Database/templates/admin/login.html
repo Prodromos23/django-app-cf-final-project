@@ -1,0 +1,58 @@
+{% extends "admin/login.html" %}
+{% load static %}
+
+{% block extrastyle %}
+<style>
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        margin-top: 50px;
+    }
+
+    .login-container .logo {
+        margin-bottom: 20px;
+    }
+
+    .login-container .title {
+        text-align: center;
+    }
+
+    .sl-logo {
+        height: 170px;
+    }
+
+    .btn-link {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        color: white;
+        background-color: #d82034;
+        text-decoration: none;
+        border-color: #d82034;
+        border-radius: 5px;
+    }
+
+    .btn-link:hover {
+        background-color: #a11c36;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <div class="logo">
+        <img class="sl-logo" src="{% static 'logo.png' %}" alt="Logo">
+    </div>
+    <h1 class="title">{{ site_title }}</h1>
+    <div class="login-form">
+        <form method="post" action="{% url 'admin_login' %}?next={% url 'welcome' %}">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn-link">Login</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Shutdown Server</title>
+    <script>
+        function shutdownServer() {
+            fetch('/shutdown/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            }).then(response => response.json()).then(data => {
+                alert(data.status);
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Shutdown Server</h1>
+    <button onclick="shutdownServer()">Shutdown</button>
+</body>
+
+</html>

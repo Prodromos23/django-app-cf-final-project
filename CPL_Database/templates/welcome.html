@@ -1,0 +1,90 @@
+<!-- templates/welcome.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Funds Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: white;
+            /* background-color: #f4f4f4; */
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #666;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #d82034;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #a11c36;
+        }
+
+
+        .btn-link {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: white;
+            background-color: #d82034;
+            text-decoration: none;
+            border-color: #d82034;
+            border-radius: 5px;
+        }
+
+        .btn-link:hover {
+            background-color: #a11c36;
+        }
+
+        img {
+            width: 500px;
+            height: 400px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Compliance Database Portal Site</h1>
+    <h3>Asset Managers Luxembourg</h3>
+    <img src="../static/logo.png" alt="Company logo">
+    <p>Database administration portal for Compliance Department of Asset Managers Luxembourg.</p>
+    <div>
+        <a href="/admin/">Go to DataBase Administration</a>
+        <a href="/register/">Register</a>
+    </div>
+    <div>
+        <a href="/create_pep_info/">Create PEP</a>
+        <a href="/create_coi_info/">Create COI</a>
+    </div>
+    <div>
+        <a href="/shutdown/">Shutdown</a>
+    </div>
+    <div>
+        <!-- <a href="/admin/logout/">Logout</a> -->
+        <form action="/admin/logout/" method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-link">Logout</button>
+        </form>
+    </div>
+</body>
+
+</html>
