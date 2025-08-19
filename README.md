@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # django-app-cf-final-project
 Django application for the final project.
 =======
@@ -82,4 +82,4 @@ python manage.py createsuperuser --noinput
 Replace `DJANGO_SUPERUSER_USERNAME`, `DJANGO_SUPERUSER_EMAIL`, `DJANGO_SUPERUSER_PASSWORD` with your own credentials for the superuser.
 
 ---
->>>>>>> ed3fdb1 (Project commit)
+
